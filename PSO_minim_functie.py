@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from random import Random
 import math
+import sys
 
 GLOBAL = 1
 LOCAL = 0
@@ -338,8 +339,13 @@ class PSOApp:
             
             #messagebox.showinfo("Finalizat", "Optimizarea a fost finalizata.")
 
+def on_closing():
+    root.destroy()  
+    sys.exit()  
+
 
 if __name__ == "__main__":
     root = tk.Tk()
+    root.protocol("WM_DELETE_WINDOW", on_closing)
     app = PSOApp(root)
     root.mainloop()
